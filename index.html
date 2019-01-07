@@ -1,32 +1,36 @@
 <!doctype html>
-<html lang="en" ng-app="LunchCheck">
+<html lang="en">
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.min.css">
     <script src="angular.min.js"></script>
+    <style src="bootstrap.min.css"></style>
     <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
   </head>
-<body>
-   <div ng-controller="LunchController" class="container">
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
-             <input id="lunch-menu" type="text" ng-model="foods"
+             <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control" ng-model="dishes">
          </div>
          <div class="form-group">
-             <button class="btn btn-default" ng-click="verifie">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="checkDishes()">Check If Too Much</button>
          </div>
          <div class="form-group message">
-           {{name}}
-           <!-- Your message can go here. -->
+           {{message}}
          </div>
+
+         <div>This app do NOT consider empty item, i.e., , , as an item towards to the count. </div>
+
    </div>
+   <!-- copyrights @chaker_khachine -->
 
 </body>
 </html>
