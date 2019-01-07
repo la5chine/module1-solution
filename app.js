@@ -2,20 +2,28 @@
 'use strict';
 
 angular.module('LunchCheck', [])
-.controller('MsgController', MsgController);
 
-MsgController.$inject = ['$scope'];
-function MsgController($scope) {
-  $scope.list = "ff";
-  $scope.stateOfBeing = "thinking";
+.controller('LunchController', function ($scope) {
+  $scope.foods = "";
+  $scope.num = 0;
+  $scope.foodlist = foods.split(',');
 
-  $scope.sayMessage = function () {
-    return "I am not happy!";
+  $scope.displayNumeric = function () {
+    var totalNameValue = calculatNumericForString($scope.name);
+    $scope.totalValue = totalNameValue;
   };
 
-  $scope.makehimhappy = function () {
-    $scope.stateOfBeing = "happy";
-  };
-}
+
+  function calculatNumericForString(string) {
+    var totalStringValue = 0;
+    for (var i = 0; i < string.length; i++) {
+      totalStringValue += string.charCodeAt(i);
+    }
+
+    return totalStringValue;
+  }
+
+});
+
 
 })();
